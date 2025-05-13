@@ -1,3 +1,5 @@
+using Kolos1.Services;
+
 namespace Kolos1;
 
 public class Program
@@ -8,6 +10,8 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddAuthorization();
+        builder.Services.AddControllers();
+        builder.Services.AddScoped<IdeliverService, deliverService>();
 
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
@@ -23,7 +27,7 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthorization();
-
+        app.MapControllers();
         
 
         app.Run();
