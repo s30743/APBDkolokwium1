@@ -22,7 +22,7 @@ namespace Kolos1.Controllers
         {
             try
             {
-                var res = _deliverService.GetDeliversById(id);
+                var res = await _deliverService.GetDeliversById(id);
                 return Ok(res);
             }
             catch (NotFoundEx ex)
